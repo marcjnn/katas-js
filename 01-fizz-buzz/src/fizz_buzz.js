@@ -1,6 +1,18 @@
 class FizzBuzz {
+  #numbers;
+
+  constructor(number) {
+    this.#numbers = Array.from(Array(number).keys(), (index) =>
+      this.#populateNumbers(index + 1)
+    );
+  }
+
   getNumbers() {
-    return Array.from(Array(100).keys(), (index) => index + 1);
+    return this.#numbers;
+  }
+
+  #populateNumbers(number) {
+    return number;
   }
 }
 
