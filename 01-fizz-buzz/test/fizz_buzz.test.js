@@ -36,10 +36,16 @@ test("returns Fizz for 18", () => {
   expect(numbers[17]).toBe("Fizz");
 });
 
-test("returns Fizz if number has a 3 in it", () => {
+test("returns Fizz for 23", () => {
   const numbers = setup();
 
   expect(numbers[22]).toBe("Fizz");
+});
+
+test("returns Fizz for 73", () => {
+  const numbers = setup();
+
+  expect(numbers[72]).toBe("Fizz");
 });
 
 // multiples of five
