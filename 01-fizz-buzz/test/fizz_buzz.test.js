@@ -61,6 +61,12 @@ test("returns Buzz for 20", () => {
   expect(numbers[19]).toBe("Buzz");
 });
 
+test("returns Buzz for 52", () => {
+  const numbers = setup();
+
+  expect(numbers[51]).toBe("Buzz");
+});
+
 // multiples of fifteen
 test("returns FizzBuzz for 15", () => {
   const numbers = setup();

@@ -32,7 +32,7 @@ class FizzBuzz {
   }
 
   #isBuzz(number) {
-    return number % 5 === 0;
+    return this.#isMultipleOf(number, 5) || this.#containsDigit(number, 5);
   }
 
   #containsDigit(number, digit) {
