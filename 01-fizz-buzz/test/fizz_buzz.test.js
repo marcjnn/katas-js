@@ -1,75 +1,69 @@
 const FizzBuzz = require("../src/fizz_buzz");
 
-describe("FizzBuzz", () => {
-  it("returns 100 elements", () => {
-    const fb = new FizzBuzz(100);
-    const numbers = fb.getNumbers();
+function setup() {
+  const fb = new FizzBuzz(100);
+  return fb.getNumbers();
+}
 
-    expect(numbers.length).toBe(100);
-  });
+test("returns 100 elements", () => {
+  const numbers = setup();
 
-  it("starts with 1", () => {
-    const fb = new FizzBuzz(100);
-    const numbers = fb.getNumbers();
+  expect(numbers.length).toBe(100);
+});
 
-    expect(numbers[0]).toBe(1);
-  });
+test("starts with 1", () => {
+  const numbers = setup();
 
-  it("returns 7 as 7th element", () => {
-    const fb = new FizzBuzz(100);
-    const numbers = fb.getNumbers();
+  expect(numbers[0]).toBe(1);
+});
 
-    expect(numbers[6]).toBe(7);
-  });
+test("returns 7 as 7th element", () => {
+  const numbers = setup();
 
-  // multiples of three
-  it("returns Fizz for 3", () => {
-    const fb = new FizzBuzz(100);
-    const numbers = fb.getNumbers();
+  expect(numbers[6]).toBe(7);
+});
 
-    expect(numbers[2]).toBe("Fizz");
-  });
+// multiples of three
+test("returns Fizz for 3", () => {
+  const numbers = setup();
 
-  it("returns Fizz for 18", () => {
-    const fb = new FizzBuzz(100);
-    const numbers = fb.getNumbers();
+  expect(numbers[2]).toBe("Fizz");
+});
 
-    expect(numbers[17]).toBe("Fizz");
-  });
+test("returns Fizz for 18", () => {
+  const numbers = setup();
 
-  // multiples of five
-  it("returns Buzz for 5", () => {
-    const fb = new FizzBuzz(100);
-    const numbers = fb.getNumbers();
+  expect(numbers[17]).toBe("Fizz");
+});
 
-    expect(numbers[4]).toBe("Buzz");
-  });
+// multiples of five
+test("returns Buzz for 5", () => {
+  const numbers = setup();
 
-  it("returns Buzz for 20", () => {
-    const fb = new FizzBuzz(100);
-    const numbers = fb.getNumbers();
+  expect(numbers[4]).toBe("Buzz");
+});
 
-    expect(numbers[19]).toBe("Buzz");
-  });
+test("returns Buzz for 20", () => {
+  const numbers = setup();
 
-  // multiples of fifteen
-  it("returns FizzBuzz for 15", () => {
-    const fb = new FizzBuzz(100);
-    const numbers = fb.getNumbers();
+  expect(numbers[19]).toBe("Buzz");
+});
 
-    expect(numbers[14]).toBe("FizzBuzz");
-  });
+// multiples of fifteen
+test("returns FizzBuzz for 15", () => {
+  const numbers = setup();
 
-  it("returns FizzBuzz for 45", () => {
-    const fb = new FizzBuzz(100);
-    const numbers = fb.getNumbers();
+  expect(numbers[14]).toBe("FizzBuzz");
+});
 
-    expect(numbers[44]).toBe("FizzBuzz");
-  });
+test("returns FizzBuzz for 45", () => {
+  const numbers = setup();
 
-  it.skip("change_this_name", () => {
-    new FizzBuzz();
+  expect(numbers[44]).toBe("FizzBuzz");
+});
 
-    expect(true).toBe(true);
-  });
+test.skip("change_this_name", () => {
+  const numbers = setup();
+
+  expect(true).toBe(true);
 });
