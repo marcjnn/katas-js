@@ -67,7 +67,7 @@ test("returns Buzz for 52", () => {
   expect(numbers[51]).toBe("Buzz");
 });
 
-// multiples of fifteen
+// FizzBuzz
 test("returns FizzBuzz for 15", () => {
   const numbers = setup();
 
@@ -80,8 +80,8 @@ test("returns FizzBuzz for 45", () => {
   expect(numbers[44]).toBe("FizzBuzz");
 });
 
-test.skip("change_this_name", () => {
+test("returns FizzBuzz for 53", () => {
   const numbers = setup();
 
-  expect(true).toBe(true);
+  expect(numbers[52]).toBe("FizzBuzz");
 });
