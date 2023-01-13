@@ -1,5 +1,7 @@
 class FizzBuzz {
   #numbers;
+  #fizzNumber = 3;
+  #buzzNumber = 5;
 
   constructor(number) {
     this.#numbers = Array.from(Array(number).keys(), (index) =>
@@ -28,11 +30,17 @@ class FizzBuzz {
   }
 
   #isFizz(number) {
-    return this.#isMultipleOf(number, 3) || this.#containsDigit(number, 3);
+    return (
+      this.#isMultipleOf(number, this.#fizzNumber) ||
+      this.#containsDigit(number, this.#fizzNumber)
+    );
   }
 
   #isBuzz(number) {
-    return this.#isMultipleOf(number, 5) || this.#containsDigit(number, 5);
+    return (
+      this.#isMultipleOf(number, this.#buzzNumber) ||
+      this.#containsDigit(number, this.#buzzNumber)
+    );
   }
 
   #containsDigit(number, digit) {
