@@ -52,6 +52,21 @@ describe("FizzBuzz", () => {
     expect(numbers[19]).toBe("Buzz");
   });
 
+  // multiples of fifteen
+  it("returns FizzBuzz for 15", () => {
+    const fb = new FizzBuzz(100);
+    const numbers = fb.getNumbers();
+
+    expect(numbers[14]).toBe("FizzBuzz");
+  });
+
+  it("returns FizzBuzz for 45", () => {
+    const fb = new FizzBuzz(100);
+    const numbers = fb.getNumbers();
+
+    expect(numbers[44]).toBe("FizzBuzz");
+  });
+
   it.skip("change_this_name", () => {
     new FizzBuzz();
 
