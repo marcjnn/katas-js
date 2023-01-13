@@ -12,19 +12,27 @@ class FizzBuzz {
   }
 
   #populateNumbers(number) {
-    if (number % 3 === 0 && number % 5 === 0) {
+    if (this.#isFizz(number) && this.#isBuzz(number)) {
       return "FizzBuzz";
     }
 
-    if (number % 3 === 0) {
+    if (this.#isFizz(number)) {
       return "Fizz";
     }
 
-    if (number % 5 === 0) {
+    if (this.#isBuzz(number)) {
       return "Buzz";
     }
 
     return number;
+  }
+
+  #isFizz(number) {
+    return number % 3 === 0;
+  }
+
+  #isBuzz(number) {
+    return number % 5 === 0;
   }
 }
 
