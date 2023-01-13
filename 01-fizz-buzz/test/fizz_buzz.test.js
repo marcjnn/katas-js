@@ -26,12 +26,20 @@ describe("FizzBuzz", () => {
   });
 
   // multiples of three
-  it("returns Fizz when multiple of 3", () => {
+  it("returns Fizz for 3", () => {
     const fb = new FizzBuzz(100);
 
     const numbers = fb.getNumbers();
 
     expect(numbers[2]).toBe("Fizz");
+  });
+
+  it("returns Fizz for 18", () => {
+    const fb = new FizzBuzz(100);
+
+    const numbers = fb.getNumbers();
+
+    expect(numbers[17]).toBe("Fizz");
   });
 
   it.skip("change_this_name", () => {
