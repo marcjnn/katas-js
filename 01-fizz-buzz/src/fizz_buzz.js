@@ -28,22 +28,25 @@ class FizzBuzz {
   }
 
   #isFizz(number) {
-    if (number % 3 === 0) {
-      return true;
-    }
-
-    // contains 3
-    const digitsAsStrings = number.toString().split("");
-    const digitsFiltered = digitsAsStrings.filter((digit) => digit === "3");
-    if (digitsFiltered.length) {
-      return true;
-    }
-
-    return false;
+    return this.#isMultipleOf(number, 3) || this.#containsDigit(number, 3);
   }
 
   #isBuzz(number) {
     return number % 5 === 0;
+  }
+
+  #containsDigit(number, digit) {
+    const digitsAsStrings = number.toString().split("");
+
+    const digitsFiltered = digitsAsStrings.filter(
+      (d) => d === digit.toString()
+    );
+
+    return Boolean(digitsFiltered.length);
+  }
+
+  #isMultipleOf(number, digit) {
+    return number % digit === 0;
   }
 }
 
