@@ -1,10 +1,12 @@
 class FizzBuzz {
   #numbers;
-  #fizzNumber = 3;
-  #buzzNumber = 5;
+  #fizzNumber;
+  #buzzNumber;
 
-  constructor(number) {
-    this.#numbers = Array.from(Array(number).keys(), (index) =>
+  constructor(numberUpTo, fizzBuzzNumbers) {
+    this.#fizzNumber = fizzBuzzNumbers.fizz;
+    this.#buzzNumber = fizzBuzzNumbers.buzz;
+    this.#numbers = Array.from(Array(numberUpTo).keys(), (index) =>
       this.#populateNumbers(index + 1)
     );
   }
