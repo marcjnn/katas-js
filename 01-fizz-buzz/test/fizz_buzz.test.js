@@ -23,7 +23,7 @@ test("returns 7 as 7th element", () => {
   expect(numbers[6]).toBe(7);
 });
 
-// multiples of three
+// Fizz
 test("returns Fizz for 3", () => {
   const numbers = setup();
 
@@ -34,6 +34,12 @@ test("returns Fizz for 18", () => {
   const numbers = setup();
 
   expect(numbers[17]).toBe("Fizz");
+});
+
+test("returns Fizz if number has a 3 in it", () => {
+  const numbers = setup();
+
+  expect(numbers[22]).toBe("Fizz");
 });
 
 // multiples of five

@@ -28,7 +28,18 @@ class FizzBuzz {
   }
 
   #isFizz(number) {
-    return number % 3 === 0;
+    if (number % 3 === 0) {
+      return true;
+    }
+
+    // contains 3
+    const digitsAsStrings = number.toString().split("");
+    const digitsFiltered = digitsAsStrings.filter((digit) => digit === "3");
+    if (digitsFiltered.length) {
+      return true;
+    }
+
+    return false;
   }
 
   #isBuzz(number) {
