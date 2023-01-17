@@ -125,12 +125,30 @@ describe("alternate version", () => {
   });
 });
 
-describe("error handling", () => {
-  test("throws error when passed 0 as an argument", () => {
+describe("validting arguments", () => {
+  test("throws error when fizz or buzz 0", () => {
     const fb = new FizzBuzz();
 
     expect(() => {
       fb.getNumbers(100, { fizz: 3, buzz: 0 });
     }).toThrow("Invalid argument - fizz & buzz have to be between 1 & 9");
   });
+
+  test("throws error when fizz or buzz negative number", () => {
+    const fb = new FizzBuzz();
+
+    expect(() => {
+      fb.getNumbers(100, { fizz: 3, buzz: -1 });
+    }).toThrow("Invalid argument - fizz & buzz have to be between 1 & 9");
+  });
+
+  test("throws error when fizz or buzz higer than 9", () => {
+    const fb = new FizzBuzz();
+
+    expect(() => {
+      fb.getNumbers(100, { fizz: 3, buzz: -1 });
+    }).toThrow("Invalid argument - fizz & buzz have to be between 1 & 9");
+  });
+
+  test.skip("", () => {});
 });

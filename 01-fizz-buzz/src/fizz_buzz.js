@@ -8,10 +8,22 @@ class FizzBuzz {
 
   #validate(fizzBuzzNumbers) {
     const { fizz, buzz } = fizzBuzzNumbers;
+    const range = [1, 9];
 
-    if (fizz === 0 || buzz === 0) {
+    if (!this.#isInRange(fizz, range) || !this.#isInRange(buzz, range)) {
       throw Error("Invalid argument - fizz & buzz have to be between 1 & 9");
     }
+  }
+
+  #isInRange(number, [x, y]) {
+    const min = Math.min(x, y);
+    const max = Math.max(x, y);
+
+    if (number > min && number < max) {
+      return true;
+    }
+
+    return false;
   }
 
   #populateNumbers(number, { fizz, buzz }) {
