@@ -1,47 +1,44 @@
 class FizzBuzz {
-  #numbers;
-  #fizzNumber;
-  #buzzNumber;
-
-  constructor(numberUpTo, fizzBuzzNumbers) {
-    this.#fizzNumber = fizzBuzzNumbers.fizz;
-    this.#buzzNumber = fizzBuzzNumbers.buzz;
-    this.#numbers = Array.from(Array(numberUpTo).keys(), (index) =>
-      this.#populateNumbers(index + 1)
+  getNumbers(numberUpTo, fizzBuzzNumbers) {
+    this.#validate(fizzBuzzNumbers);
+    return Array.from(Array(numberUpTo).keys(), (index) =>
+      this.#populateNumbers(index + 1, fizzBuzzNumbers)
     );
   }
 
-  getNumbers() {
-    return this.#numbers;
+  #validate(fizzBuzzNumbers) {
+    const { fizz, buzz } = fizzBuzzNumbers;
+
+    if (fizz === 0 || buzz === 0) {
+      throw Error("Invalid argument - fizz & buzz have to be between 1 & 9");
+    }
   }
 
-  #populateNumbers(number) {
-    if (this.#isFizz(number) && this.#isBuzz(number)) {
+  #populateNumbers(number, { fizz, buzz }) {
+    if (this.#isFizz(number, fizz) && this.#isBuzz(number, buzz)) {
       return "FizzBuzz";
     }
 
-    if (this.#isFizz(number)) {
+    if (this.#isFizz(number, fizz)) {
       return "Fizz";
     }
 
-    if (this.#isBuzz(number)) {
+    if (this.#isBuzz(number, buzz)) {
       return "Buzz";
     }
 
     return number;
   }
 
-  #isFizz(number) {
+  #isFizz(number, fizz) {
     return (
-      this.#isMultipleOf(number, this.#fizzNumber) ||
-      this.#containsDigit(number, this.#fizzNumber)
+      this.#isMultipleOf(number, fizz) || this.#containsDigit(number, fizz)
     );
   }
 
-  #isBuzz(number) {
+  #isBuzz(number, buzz) {
     return (
-      this.#isMultipleOf(number, this.#buzzNumber) ||
-      this.#containsDigit(number, this.#buzzNumber)
+      this.#isMultipleOf(number, buzz) || this.#containsDigit(number, buzz)
     );
   }
 

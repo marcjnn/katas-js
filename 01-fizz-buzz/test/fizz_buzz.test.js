@@ -1,13 +1,13 @@
 const FizzBuzz = require("../src/fizz_buzz");
 
 function setupFizzBuzzClassic() {
-  const fb = new FizzBuzz(100, { fizz: 3, buzz: 5 });
-  return fb.getNumbers();
+  const fb = new FizzBuzz();
+  return fb.getNumbers(100, { fizz: 3, buzz: 5 });
 }
 
 function setupFizzBuzzAlternate() {
-  const fb = new FizzBuzz(100, { fizz: 7, buzz: 8 });
-  return fb.getNumbers();
+  const fb = new FizzBuzz();
+  return fb.getNumbers(100, { fizz: 7, buzz: 8 });
 }
 
 describe("classic fizz buzz", () => {
@@ -125,4 +125,12 @@ describe("alternate version", () => {
   });
 });
 
-// TODO: 0 doesn't brake the program
+describe("error handling", () => {
+  test("throws error when passed 0 as an argument", () => {
+    const fb = new FizzBuzz();
+
+    expect(() => {
+      fb.getNumbers(100, { fizz: 3, buzz: 0 });
+    }).toThrow("Invalid argument - fizz & buzz have to be between 1 & 9");
+  });
+});
