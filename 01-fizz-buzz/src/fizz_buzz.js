@@ -1,12 +1,16 @@
 class FizzBuzz {
   getNumbers(numberUpTo, fizzBuzzNumbers) {
-    this.#validate(fizzBuzzNumbers);
+    this.#validate(numberUpTo, fizzBuzzNumbers);
     return Array.from(Array(numberUpTo).keys(), (index) =>
       this.#populateNumbers(index + 1, fizzBuzzNumbers)
     );
   }
 
-  #validate(fizzBuzzNumbers) {
+  #validate(numberUpTo, fizzBuzzNumbers) {
+    if (numberUpTo <= 0) {
+      throw Error("Invalid argument - numberUpTo has to be at least 1");
+    }
+
     const { fizz, buzz } = fizzBuzzNumbers;
     const range = [1, 9];
 

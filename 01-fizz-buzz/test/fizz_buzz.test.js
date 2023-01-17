@@ -150,5 +150,11 @@ describe("validting arguments", () => {
     }).toThrow("Invalid argument - fizz & buzz have to be between 1 & 9");
   });
 
-  test.skip("", () => {});
+  test("throws error when numberUpTo lower than 1", () => {
+    const fb = new FizzBuzz();
+
+    expect(() => {
+      fb.getNumbers(0, { fizz: 3, buzz: 5 });
+    }).toThrow("Invalid argument - numberUpTo has to be at least 1");
+  });
 });
